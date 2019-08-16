@@ -1,10 +1,10 @@
 <template>
-    <div id="appcomponent">
-       <h1 name ="display-1" class = "main_title">Deck Of Cards</h1>
-        <div class="button_div">
-            <button type="button" class="btn btn-primary" v-on:click="shuffle">Shuffle</button>
-            <button type="button" class="btn btn-secondary" style="margin-left:10px" v-on:click="sort">Sort Drawn Cards</button>
-            <button type="button" class="btn btn-success" style="margin-left:10px" onclick="window.location.reload()">Reset Deck</button>
+    <div id="appcomponent fluid-container">
+       <h1 name ="display-1 row" class = "main_title">Deck Of Cards</h1>
+        <div class="button_div row">
+            <button type="button" class="btn btn-primary col-md-1 button1" v-on:click="shuffle">Shuffle</button>
+            <button type="button" class="btn btn-secondary col-md-2" style="margin-left:10px" v-on:click="sort">Sort Drawn Cards</button>
+            <button type="button" class="btn btn-success col-md-1" style="margin-left:10px" onclick="window.location.reload()">Reset Deck</button>
         </div>
          <!-- List of cards in deck array-->
         <div class="deck">
@@ -187,13 +187,19 @@ export default {
     text-align: center;
     font-weight: bold;
     padding: 10px;
-    font-size: 60px;
+    font-size: 40px;
+
 }
 
 .button_div{
     padding-left: 50px;
+    padding-right: 40px;
 }
-
+.button1{
+    margin-left: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
+}
 .deck{
     overflow: hidden;
     margin: 20px;
@@ -266,5 +272,65 @@ h2{
 .black{
     color: black;
 }
+
+
+@media (min-width: 768px) {
+    .main_title{
+    color: #0E727A;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    font-size: 60px;
+}
+
+.button_div{
+    padding-left: 60px;
+    
+}
+.button1{
+    margin-left: 0px;
+}
+.deck{
+    overflow: hidden;
+    margin: 20px;
+    margin-left: 45px;
+    padding-left: 20px;
+    border: 10px solid green;
+}
+
+.gap{
+    margin-top: 100px;
+}
+
+h2{
+    text-align: center;
+    color: rebeccapurple;
+    padding: 10px;
+    font-size: 45px
+}
+.card{
+    background-color: #AAB7B8;
+    float: left;
+    font-size: 120px;
+    height: -100px;
+    margin: 10px;
+    transition: width 2s;
+    border-style: none;
+}
+
+.card:hover {
+  background: gold;
+}
+.list-enter-active, .list-leave-active {
+  transition: all 1s;
+}
+.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.list-move {
+  transition: transform 1s;
+}
+ }
 
 </style>
