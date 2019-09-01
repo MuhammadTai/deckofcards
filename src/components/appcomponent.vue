@@ -1,14 +1,14 @@
 <template>
     <div id="appcomponent fluid-container">
-       <h1 name ="display-1 row" class = "main_title">Deck Of Cards</h1>
-        <div class="button_div row">
+       <h1 name ="display-1 row" class = "main-title">Deck Of Cards</h1>
+        <div class="button-div row">
             <button type="button" class="btn btn-primary col-md-1 button1" v-on:click="shuffle">Shuffle</button>
-            <button type="button" class="btn btn-secondary col-md-2" style="margin-left:10px" v-on:click="sort">Sort Drawn Cards</button>
-            <button type="button" class="btn btn-success col-md-1" style="margin-left:10px" onclick="window.location.reload()">Reset Deck</button>
+            <button type="button" class="btn btn-secondary col-md-2" style="font-family:'Raleway', sans-serif; margin-left:10px" v-on:click="sort">Sort Drawn Cards</button>
+            <button type="button" class="btn btn-warning col-md-2" style="font-family:'Raleway', sans-serif; margin-left:10px" onclick="window.location.reload()">Reset Deck</button>
         </div>
          <!-- List of cards in deck array-->
         <div class="deck">
-            <transition-group name="list" tag="p">
+            <transition-group name="list" tag="ul">
             <div v-for="card in deck" v-bind:key="card.card_id" class="card"  v-bind:class="card.card_color" v-on:click="remove(card.card_id)">
                 <!--
                 <div class = "card_suite" v-bind:class="[colors[card.card_suite]]">
@@ -26,7 +26,7 @@
         <div class="gap">
             <h2 name ="display-3">Drawn Cards</h2>
             <div class="deck">
-                <transition-group name="list" tag="p">
+                <transition-group name="list" tag="ul">
                 <div v-for="card in drawn"  v-bind:key="card.card_id" v-bind:class="card.card_color" class="card" >
                     <!--
                     <div class = "card_suite" v-bind:class="[colors[card.card_suite]]">
@@ -182,16 +182,16 @@ export default {
     
 }
 
-.main_title{
+.main-title{
     color: #0E727A;
     text-align: center;
     font-weight: bold;
-    padding: 10px;
-    font-size: 40px;
-
+    padding: 30px;
+    font-size: 48px;
+    margin-bottom: 40px;
+    font-family: 'Lobster', sans-serif;
 }
-
-.button_div{
+.button-div{
     padding-left: 50px;
     padding-right: 40px;
 }
@@ -199,12 +199,13 @@ export default {
     margin-left: 10px;
     padding-left: 0px;
     padding-right: 0px;
+    font-family:'Raleway', sans-serif;
 }
 .deck{
     overflow: hidden;
     margin: 20px;
     margin-left: 45px;
-    padding-left: 20px;
+    
     border: 10px solid green;
 }
 
@@ -215,8 +216,9 @@ export default {
 h2{
     text-align: center;
     color: rebeccapurple;
-    padding: 10px;
-    font-size: 45px
+    padding: 20px;
+    font-size: 40px;
+    font-family: 'Lobster', sans-serif;
 }
 .card{
     background-color: #AAB7B8;
@@ -225,11 +227,18 @@ h2{
     height: -100px;
     margin: 10px;
     transition: width 2s;
-    border-style: none;
+    border-style: solid;
+    border-width: 5px;
+    border-color: ivory;
+    line-height: 1em;
+    padding-bottom: 12px;
+    padding-right: 5px;
+    padding-left: 5px;
+    cursor: pointer;
 }
 
 .card:hover {
-  background: gold;
+  border-color: currentColor;
 }
 .list-enter-active, .list-leave-active {
   transition: all 1s;
@@ -275,15 +284,11 @@ h2{
 
 
 @media (min-width: 768px) {
-    .main_title{
-    color: #0E727A;
-    text-align: center;
-    font-weight: bold;
-    padding: 10px;
-    font-size: 60px;
-}
+.main-title{
+    font-size: 68px;   
+} 
 
-.button_div{
+.button-div{
     padding-left: 60px;
     
 }
@@ -294,7 +299,7 @@ h2{
     overflow: hidden;
     margin: 20px;
     margin-left: 45px;
-    padding-left: 20px;
+
     border: 10px solid green;
 }
 
@@ -305,32 +310,13 @@ h2{
 h2{
     text-align: center;
     color: rebeccapurple;
-    padding: 10px;
-    font-size: 45px
-}
-.card{
-    background-color: #AAB7B8;
-    float: left;
-    font-size: 120px;
-    height: -100px;
-    margin: 10px;
-    transition: width 2s;
-    border-style: none;
+    font-size: 58px;
+    padding: 20px;
+    font-family: 'Lobster', sans-serif;
 }
 
-.card:hover {
-  background: gold;
+
+
 }
-.list-enter-active, .list-leave-active {
-  transition: all 1s;
-}
-.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
-  opacity: 0;
-  transform: translateY(30px);
-}
-.list-move {
-  transition: transform 1s;
-}
- }
 
 </style>
