@@ -1,10 +1,10 @@
 <template>
-    <div id="appcomponent fluid-container">
+    <div id="appcomponent" class="container-fluid">
        <h1 name ="display-1 row" class = "main-title">Deck Of Cards</h1>
         <div class="button-div row">
             <button type="button" class="btn btn-primary col-md-1 button1" v-on:click="shuffle">Shuffle</button>
-            <button type="button" class="btn btn-secondary col-md-2" style="font-family:'Raleway', sans-serif; margin-left:10px" v-on:click="sort">Sort Drawn Cards</button>
-            <button type="button" class="btn btn-warning col-md-2" style="font-family:'Raleway', sans-serif; margin-left:10px" onclick="window.location.reload()">Reset Deck</button>
+            <button type="button" class="btn btn-secondary col-md-2 button2-3" style="font-family:'Raleway', sans-serif; " v-on:click="sort">Sort Drawn Cards</button>
+            <button type="button" class="btn btn-warning col-md-2 button2-3" style="font-family:'Raleway', sans-serif; " onclick="window.location.reload()">Reset Deck</button>
         </div>
          <!-- List of cards in deck array-->
         <div class="deck">
@@ -192,19 +192,21 @@ export default {
     font-family: 'Lobster', sans-serif;
 }
 .button-div{
-    padding-left: 50px;
+    margin-left: 20px;
     padding-right: 40px;
 }
 .button1{
-    margin-left: 10px;
     padding-left: 0px;
     padding-right: 0px;
     font-family:'Raleway', sans-serif;
 }
+.button2-3{
+    margin-left:0px;
+}
 .deck{
     overflow: hidden;
     margin: 20px;
-    margin-left: 45px;
+   
     
     border: 10px solid green;
 }
@@ -289,16 +291,20 @@ h2{
 } 
 
 .button-div{
-    padding-left: 60px;
+    margin-left: 20px;
+    
     
 }
 .button1{
     margin-left: 0px;
 }
+.button2-3{
+    margin-left: 10px;
+}
 .deck{
     overflow: hidden;
     margin: 20px;
-    margin-left: 45px;
+    
 
     border: 10px solid green;
 }
